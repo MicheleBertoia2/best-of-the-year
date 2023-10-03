@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<head th:replace="frags/head.html">
 </head>
 <body>
-	<h1>Lista film</h1>
-	<h2>[[${list}]]</h2>
+	
+	
+	<div class="main-wrapper">
+		
+		<div th:replace="~{frags/navbar.html}"></div>
+		<div class="container d-flex justify-content-center align-items-center h-100 flex-column">
+			<h1>Lista Films</h1>
+			<div class="card" style="width: 18rem;" th:each="film : ${list}">
+			  <img th:src="@{/img/wuf.webp}" class="card-img-top" alt="...">
+			  <div class="card-body">
+			    <a th:href="@{/film/{id}(id = ${film.id})}" class="btn btn-success">[[${film.titolo}]]</a>
+			  </div>
+			</div>			
+			<a th:href="@{/}" class="btn btn-secondary my-3">Home</a>
+		</div>
+	</div>
 </body>
 </html>

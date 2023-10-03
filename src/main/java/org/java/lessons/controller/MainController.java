@@ -2,8 +2,6 @@ package org.java.lessons.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-
 import org.java.lessons.entertainment.Movie;
 import org.java.lessons.entertainment.Song;
 import org.springframework.stereotype.Controller;
@@ -51,8 +49,9 @@ public class MainController {
 	@GetMapping("/movies")
 	public String movies(Model model)
 	{
-		String list = getBestMovies().stream().map(String::valueOf).collect(Collectors.joining(" - "));
+		List<Movie> list = getBestMovies();
 		model.addAttribute("list", list);
+		
 		return "movies";
 		
 	}
@@ -60,7 +59,7 @@ public class MainController {
 	@GetMapping("/songs")
 	public String songs(Model model)
 	{
-		String list = getBestSongs().stream().map(String::valueOf).collect(Collectors.joining(" - "));
+		List<Song> list = getBestSongs();
 		model.addAttribute("list", list);
 		return "songs";
 	}

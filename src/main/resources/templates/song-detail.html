@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<head th:replace="frags/head.html">
+
 </head>
+<title>>Insert title here</title>
 <body>
+	<div th:insert="frags/navbar.html"></div>
 	<h1>dettaglio canzone: [[${titolo}]]</h1>
 	<h2>id: [[${id}]]</h2>
+	<a class='btn btn primary' th:href=@{/songs} >indietro</a>
 </body>
 </html>
